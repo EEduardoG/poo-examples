@@ -60,8 +60,7 @@ class AnimalVolador(Animal):
         pass
 
 '''
-Esta clase no hereda de Animal debido a que no se acompla 
-a nuestro diseño. Sin embargo no prestemos atención a esto.
+Esta clase nos servirá para definir a aquellos animales que tienen patas.
 '''
 class AnimalConPatas(ABC):
     __patas = 0
@@ -181,7 +180,7 @@ class Delfin(AnimalNadador):
 #Instanciamos a nuestro animal
 animal = Perro()
 
-#Porvemos diferentes métodos de nuestro animal...
+#probemos diferentes métodos de nuestro animal...
 animal.emitirSonido()
 
 
