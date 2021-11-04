@@ -41,26 +41,26 @@ class IngredientQuantity(Ingredient):
 
             
 #Define a list of ingredients.
-class IngredentsList: 
+class IngredientsList: 
     def __init__(self):
         #Empty list that will be populated with ingredients.
         self.listOfIngredients = []
 
     #Add a new ingredient to list.
-    def addIngredent(self,ingredient):
+    def addIngredient(self,ingredient):
         print('adding ' + str(ingredient.quantity) + ' ' + ingredient.measure + ' of ' + ingredient.name + '...')
         self.listOfIngredients.append(ingredient)
    
 
 #Abstract class to define food.
-class Food(IngredentsList,ABC):
+class Food(IngredientsList,ABC):
 
     def __init__(self):
         '''
         It is equal to super(). but because we have multiple inheritance.
         It´s more easy to access in this way.
         '''
-        IngredentsList.__init__(self)
+        IngredientsList.__init__(self)
         '''
         We will define the name of our food in the setName() method. 
         So we initialize the name empty.'''
@@ -117,14 +117,14 @@ cake = Cake()
 #Name of our cake.
 cake.setName('Pastel de fresas')
 #Add ingredients to our cake.
-cake.addIngredent(IngredientQuantity('flour','grams', 800 ))
-cake.addIngredent(IngredientQuantity('egg','pieces', 2 ))
-cake.addIngredent(IngredientQuantity('strawberry','pieces', 10 ))
-cake.addIngredent(IngredientQuantity('milk','mililiters', 200 ))
-cake.addIngredent(IngredientQuantity('sugar','grams', 20 ))
-cake.addIngredent(IngredientQuantity('butter','grams', 10 ))
-cake.addIngredent(IngredientQuantity('salt','grams', 2 ))
-cake.addIngredent(IngredientQuantity('baking powder','grams', 20 ))
+cake.addIngredient(IngredientQuantity('flour','grams', 800 ))
+cake.addIngredient(IngredientQuantity('egg','pieces', 2 ))
+cake.addIngredient(IngredientQuantity('strawberry','pieces', 10 ))
+cake.addIngredient(IngredientQuantity('milk','mililiters', 200 ))
+cake.addIngredient(IngredientQuantity('sugar','grams', 20 ))
+cake.addIngredient(IngredientQuantity('butter','grams', 10 ))
+cake.addIngredient(IngredientQuantity('salt','grams', 2 ))
+cake.addIngredient(IngredientQuantity('baking powder','grams', 20 ))
 #prepare our cake.
 cake.prepare()
 #bake the cake.
@@ -169,8 +169,8 @@ With a good abstraction model and using inheritance
 We will be able to write code more quickly and efficiently.
 '''
 fries = FrenchFries()
-fries.addIngredent(IngredientQuantity('salt','grams', 10 ))
-fries.addIngredent(IngredientQuantity('potatoe','piece', 1 ))
+fries.addIngredient(IngredientQuantity('salt','grams', 10 ))
+fries.addIngredient(IngredientQuantity('potatoe','piece', 1 ))
 fries.prepare()
 fries.fry()
 fries.serve()
