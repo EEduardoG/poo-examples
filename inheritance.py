@@ -57,7 +57,7 @@ class Food(IngredentsList,ABC):
 
     def __init__(self):
         '''
-        It is equal to super(). but how we have multiple inheritance.
+        It is equal to super(). but because we have multiple inheritance.
         It´s more easy to access in this way.
         '''
         IngredentsList.__init__(self)
