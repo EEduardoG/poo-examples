@@ -22,8 +22,8 @@ class Ingredient:
         self.qty = qty
 
 
-#Define a list of ingredients.
-class IngredientsList: 
+#Define our recipe.
+class Recipe: 
     def __init__(self):
         #Empty list that will be populated with ingredients.
         self.listOfIngredients = []
@@ -36,14 +36,14 @@ class IngredientsList:
    
 
 #Abstract class to define food.
-class Food(IngredientsList,ABC):
+class Food(Recipe,ABC):
 
     def __init__(self):
         '''
         It is equal to super(). but because we have multiple inheritance.
         It´s more easy to access in this way.
         '''
-        IngredientsList.__init__(self)
+        Recipe.__init__(self)
         '''
         We will define the name of our food in the setName() method. 
         So we initialize the name empty.'''
