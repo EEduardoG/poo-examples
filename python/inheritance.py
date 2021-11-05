@@ -14,41 +14,24 @@ from abc import ABC, abstractmethod
 #Define a ingredient.
 class Ingredient:
     #Constructor of ingredient
-    def __init__(self, name,measure):
+    def __init__(self, name,measure,qty):
         #Name of ingredient
         self.name = name 
         #unit of measurement
         self.measure = measure
+        self.qty = qty
 
 
-'''
-Class to define quantity of ingredient.
-As you can see. This class inherits from the Ingredient class.
-So Ingredient is the parent class and IngredientQuantity is his 
-child.
-'''
-
-class IngredientQuantity(Ingredient):
-    def __init__(self,name,measure,quantity):
-        '''
-        Here we are having access to methods and attributes from
-        the parent class. Now we can set attribute values and access to
-        methods.
-        '''
-        super().__init__(name,measure)
-        #Define quantity of ingredient.
-        self.quantity = quantity
-
-            
 #Define a list of ingredients.
 class IngredientsList: 
     def __init__(self):
         #Empty list that will be populated with ingredients.
         self.listOfIngredients = []
 
+
     #Add a new ingredient to list.
     def addIngredient(self,ingredient):
-        print('adding ' + str(ingredient.quantity) + ' ' + ingredient.measure + ' of ' + ingredient.name + '...')
+        print('adding ' + str(ingredient.qty) + ' ' + ingredient.measure + ' of ' + ingredient.name + '...')
         self.listOfIngredients.append(ingredient)
    
 
@@ -117,14 +100,16 @@ cake = Cake()
 #Name of our cake.
 cake.setName('Pastel de fresas')
 #Add ingredients to our cake.
-cake.addIngredient(IngredientQuantity('flour','grams', 800 ))
-cake.addIngredient(IngredientQuantity('egg','pieces', 2 ))
-cake.addIngredient(IngredientQuantity('strawberry','pieces', 10 ))
-cake.addIngredient(IngredientQuantity('milk','mililiters', 200 ))
-cake.addIngredient(IngredientQuantity('sugar','grams', 20 ))
-cake.addIngredient(IngredientQuantity('butter','grams', 10 ))
-cake.addIngredient(IngredientQuantity('salt','grams', 2 ))
-cake.addIngredient(IngredientQuantity('baking powder','grams', 20 ))
+cake.addIngredient(Ingredient('flour','grams', 800 ))
+cake.addIngredient(Ingredient('egg','pieces', 2 ))
+cake.addIngredient(Ingredient('strawberry','pieces', 10 ))
+cake.addIngredient(Ingredient('milk','mililiters', 200 ))
+cake.addIngredient(Ingredient('sugar','grams', 20 ))
+cake.addIngredient(Ingredient('butter','grams', 10 ))
+cake.addIngredient(Ingredient('salt','grams', 2 ))
+cake.addIngredient(Ingredient('baking powder','grams', 20 ))
+
+
 #prepare our cake.
 cake.prepare()
 #bake the cake.
@@ -156,11 +141,11 @@ class FrenchFries(FriedFood):
         super().__init__()
 
     def prepare(self):
-        #TODO: what is the way to preapre a cake?
+        #TODO: what is the way to preapre french fries?
         print('preparing french fries yumi yumi!...')
     
     def fry(self):
-        #TODO: what is the way to bake a cake?
+        #TODO: what is the way to prepare french fries?
         print('frying our french fries...')
         print('Your french fries are ready... Enjoy!')
 
@@ -169,8 +154,8 @@ With a good abstraction model and using inheritance
 We will be able to write code more quickly and efficiently.
 '''
 fries = FrenchFries()
-fries.addIngredient(IngredientQuantity('salt','grams', 10 ))
-fries.addIngredient(IngredientQuantity('potatoe','piece', 1 ))
+fries.addIngredient(Ingredient('salt','grams', 10 ))
+fries.addIngredient(Ingredient('potatoe','piece', 1 ))
 fries.prepare()
 fries.fry()
 fries.serve()
