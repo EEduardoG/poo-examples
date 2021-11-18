@@ -36,7 +36,7 @@ class Recipe:
    
 
 #Abstract class to define food.
-class Food(Recipe,ABC):
+class Food(Recipe):
 
     def __init__(self):
         '''
